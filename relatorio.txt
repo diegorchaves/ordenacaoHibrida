@@ -1,0 +1,5 @@
+A fazer:
+
+1) implementar o merge puro e comparar o desempenho com o híbrido;
+2) implementar o quicksort híbrido com algum secundário;
+3) comparar o algoritmo 2 com o quicksort puro;
