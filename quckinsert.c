@@ -1,4 +1,6 @@
 #include <stdio.h>
+#define MAX_VALUES 10000
+#define FILENAME "valores10000.txt"
 
 #define LIMITAR 5
 
@@ -56,11 +58,26 @@ void imprimirVetor(int vetor[], int tamanho) {
 }
 
 int main() {
-    int vetor[] = {12, 11, 13, 5, 6, 7};
-    int n = sizeof(vetor) / sizeof(vetor[0]);
+    int vetor[MAX_VALUES];
+    int n = MAX_VALUES;
 
-    printf("Vetor não ordenado: \n");
-    imprimirVetor(vetor, n);
+     // Abrir o arquivo para leitura
+    FILE *fp = fopen(FILENAME, "r");
+    if (fp == NULL) {
+        printf("Erro ao abrir o arquivo para leitura.\n");
+        return 1;
+    }
+
+    // Ler os valores do arquivo
+    while (fscanf(fp, "%d", &vetor[n]) != EOF && n < MAX_VALUES) {
+        n++;
+    }
+
+    // Fechar o arquivo
+    fclose(fp);
+
+/*     printf("Vetor não ordenado: \n");
+    imprimirVetor(vetor, n); */
 
     ordenacaoHibrida(vetor, 0, n - 1);
     printf("\nVetor ordenado: \n");
