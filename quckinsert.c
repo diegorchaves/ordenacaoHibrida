@@ -2,7 +2,13 @@
 #define MAX_VALUES 10000
 #define FILENAME "valores10000.txt"
 
-#define LIMITAR 5
+#define LIMITAR 10
+
+void swap(int vetor[], int i, int j) {
+    int aux = vetor[i];
+    vetor[i] = vetor[j];
+    vetor[j] = aux;
+}
 
 void ordenacaoInsercao(int vetor[], int inicio, int fim) {
     for (int i = inicio + 1; i <= fim; i++) {
@@ -17,7 +23,15 @@ void ordenacaoInsercao(int vetor[], int inicio, int fim) {
 }
 
 int particionar(int vetor[], int inicio, int fim) {
-    int pivo = vetor[fim];
+    
+    int mid = inicio + (fim - inicio) / 2;
+    int pivotIndex = (vetor[inicio] < vetor[mid]) ?
+                     ((vetor[mid] < vetor[fim]) ? mid : ((vetor[inicio] < vetor[fim]) ? fim : inicio)) :
+                     ((vetor[inicio] < vetor[fim]) ? inicio : ((vetor[mid] < vetor[fim]) ? fim : mid));
+
+    swap(vetor, inicio, pivotIndex);
+
+    int pivo = vetor[inicio];
     int i = (inicio - 1);
     for (int j = inicio; j <= fim - 1; j++) {
         if (vetor[j] <= pivo) {
@@ -54,6 +68,7 @@ void ordenacaoHibrida(int vetor[], int inicio, int fim) {
 void imprimirVetor(int vetor[], int tamanho) {
     for (int i = 0; i < tamanho; i++)
         printf("%d ", vetor[i]);
+        
     printf("\n");
 }
 
