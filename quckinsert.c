@@ -59,7 +59,7 @@ void imprimirVetor(int vetor[], int tamanho) {
 
 int main() {
     int vetor[MAX_VALUES];
-    int n = MAX_VALUES;
+    int n = 0;
 
      // Abrir o arquivo para leitura
     FILE *fp = fopen(FILENAME, "r");
