@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 #define MAX_VALUES 10000
 #define FILENAME "valores10000.txt"
 
@@ -11,6 +14,12 @@ void swap(int array[], int i, int j)
 
 int particiona(int array[], int left, int right)
 {
+    int mid = left + (right - left) / 2;
+    int pivotIndex = (array[left] < array[mid]) ?
+                     ((array[mid] < array[right]) ? mid : ((array[left] < array[right]) ? right : left)) :
+                     ((array[left] < array[right]) ? left : ((array[mid] < array[right]) ? right : mid));
+    swap(array, left, pivotIndex);
+
     int pivot = array[left];
     int i = left;
     for (int j = left+1; j <= right; j++)
@@ -37,6 +46,8 @@ void quickSort(int array[], int left, int right)
 
 int main()
 {
+    srand(time(NULL));
+
     int vetor[MAX_VALUES];
     int n = 0;
 
@@ -57,6 +68,6 @@ int main()
 
     quickSort(vetor, 0, n-1);
 
-/*     for(int i = 0; i < n; i++)
-        printf("%d ", vetor[i]); */
+    for(int i = 0; i < n; i++)
+        printf("%d ", vetor[i]);
 }
