@@ -11,9 +11,9 @@ f) externo inverso = user 0,010s
 
 mergeInsertion
 
-a) interno aleatorio = user 0,006s
-b) interno quase ordenado = user 0,003s
-c) interno inverso = user 0,005s
-d) externo aleatorio = user 0,107s
-e) externo quase ordenado = user 0,008s
-f) externo inverso = user 0,189s
+a) interno aleatorio = user 0,004s
+b) interno quase ordenado = user 0,002s
+c) interno inverso = user 0,003s
+d) externo aleatorio = user 0,009s
+e) externo quase ordenado = user 0,011s
+f) externo inverso = user 0,008s
