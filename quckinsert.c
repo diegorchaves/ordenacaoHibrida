@@ -91,9 +91,6 @@ int main() {
     // Fechar o arquivo
     fclose(fp);
 
-/*     printf("Vetor não ordenado: \n");
-    imprimirVetor(vetor, n); */
-
     ordenacaoHibrida(vetor, 0, n - 1);
     printf("\nVetor ordenado: \n");
     imprimirVetor(vetor, n);
