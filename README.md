@@ -14,9 +14,13 @@ O programa tem como objetivo ordenar um conjunto de valores contidos em um arqui
 O programa é estruturado em torno da função principal ('main') e várias funções auxiliares:
 
 **main**: A função principal é responsável por coordenar a execução do programa, lendo o arquivo, chamando os algoritmos e imprimindo o vetor ordenado.
+
 **swap**: Essa função simplesmente troca dois elementos de um vetor.
+
 **ordenacaoInsercao**: Implementa o algoritmo de ordenação por inserção.
+
 **particionar**: Divide o vetor em torno de um pivô para aplicar o algoritmo de ordenação quicksort.
+
 **ordenacaoHibrida**: Implementa o algoritmo de ordenação híbrida, decidindo entre o quicksort e o inserção dependendo do tamanho do vetor.
 
 ### 3. Algoritmo de Ordenação Híbrida: Detalhamento do Funcionamento
