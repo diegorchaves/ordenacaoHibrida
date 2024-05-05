@@ -1,6 +1,6 @@
 #include <stdio.h>
-#define MAX_VALUES 10000
-#define FILENAME "valores10000.txt"
+#define MAX_VALUES 1000
+#define FILENAME "interno_aleatorios.txt"
 
 void swap(int array[], int i, int j)
 {
@@ -57,6 +57,6 @@ int main()
 
     quickSort(vetor, 0, n-1);
 
-/*     for(int i = 0; i < n; i++)
-        printf("%d ", vetor[i]); */
+     for(int i = 0; i < n; i++)
+        printf("%d ", vetor[i]); 
 }

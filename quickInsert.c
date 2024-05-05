@@ -1,6 +1,6 @@
 #include <stdio.h>
 #define MAX_VALUES 10000
-#define FILENAME "valores10000.txt"
+#define FILENAME "externo_inversamente_ordenados.txt"
 
 #define LIMITAR 10
 
