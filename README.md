@@ -1,7 +1,5 @@
-# ordenacaoHibrida
+# Ordenação Híbrida
 Algoritmos de ordenação híbrida de valores inteiros utilizando a linguagem C
-
-# Relatório
 
 ## 1º algoritmo - Quick Insert
 
