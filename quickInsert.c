@@ -1,9 +1,18 @@
 #include <stdio.h>
+#define MAX_VALUES 100000
+#define FILENAME "externo_inversamente_ordenados.txt"
 
-#define LIMITAR 5
+#define LIMITAR 10
+
+void swap(int vetor[], int i, int j) {
+    int aux = vetor[i];
+    vetor[i] = vetor[j];
+    vetor[j] = aux;
+}
 
 void ordenacaoInsercao(int vetor[], int inicio, int fim) {
-    for (int i = inicio + 1; i <= fim; i++) {
+    int i;
+    for (i = inicio + 1; i <= fim; i++) {
         int chave = vetor[i];
         int j = i - 1;
         while (j >= inicio && vetor[j] > chave) {
@@ -15,9 +24,18 @@ void ordenacaoInsercao(int vetor[], int inicio, int fim) {
 }
 
 int particionar(int vetor[], int inicio, int fim) {
-    int pivo = vetor[fim];
+    int j;
+
+    int mid = inicio + (fim - inicio) / 2;
+    int pivotIndex = (vetor[inicio] < vetor[mid]) ?
+                     ((vetor[mid] < vetor[fim]) ? mid : ((vetor[inicio] < vetor[fim]) ? fim : inicio)) :
+                     ((vetor[inicio] < vetor[fim]) ? inicio : ((vetor[mid] < vetor[fim]) ? fim : mid));
+
+    swap(vetor, inicio, pivotIndex);
+
+    int pivo = vetor[inicio];
     int i = (inicio - 1);
-    for (int j = inicio; j <= fim - 1; j++) {
+    for (j = inicio; j <= fim - 1; j++) {
         if (vetor[j] <= pivo) {
             i++;
             int temp = vetor[i];
@@ -50,17 +68,28 @@ void ordenacaoHibrida(int vetor[], int inicio, int fim) {
 }
 
 void imprimirVetor(int vetor[], int tamanho) {
-    for (int i = 0; i < tamanho; i++)
+    int i;
+    for (i = 0; i < tamanho; i++)
         printf("%d ", vetor[i]);
+        
     printf("\n");
 }
 
 int main() {
-    int vetor[] = {12, 11, 13, 5, 6, 7};
-    int n = sizeof(vetor) / sizeof(vetor[0]);
+    int vetor[MAX_VALUES];
+    int n = 0;
 
-    printf("Vetor não ordenado: \n");
-    imprimirVetor(vetor, n);
+    FILE *fp = fopen(FILENAME, "r");
+    if (fp == NULL) {
+        printf("Erro ao abrir o arquivo para leitura.\n");
+        return 1;
+    }
+
+    while (fscanf(fp, "%d", &vetor[n]) != EOF && n < MAX_VALUES) {
+        n++;
+    }
+
+    fclose(fp);
 
     ordenacaoHibrida(vetor, 0, n - 1);
     printf("\nVetor ordenado: \n");
